@@ -1,19 +1,27 @@
 # lidar-sensor-modeling-bayes-estimation
-This project models LiDAR sensor noise and applies Bayesian inference for state estimation using real-world data collected from a Velodyne Puck sensor.
+Author: Viviane Solomon, Engineer @ Harvey Mudd College
 
-- Modeled LiDAR range measurements as Gaussian distribution
-- Constructed conditional probability model P(Z|X)
-- Applied Bayes rule to estimate position probabilities
-- Transformed GPS coordinates into a local Cartesian frame
+# Overview
+This lab covers probabilistic sensor modeling and Bayesian state estimation using real LiDAR and GPS data collected from a stationary sensor in the Parsons building courtyard.
 
+# Lab Sections
+1. Histograms: Range histograms for azimuth = -90º, 0º, and 90º.
+2. Gaussian Model: Fit a Gaussian PDF p(z | μ, σ²) to the -90º range data
+3. GPS Coordinate Transform: Convert lat/lon to local X/Y (meters) using the flat-earth approximation from E80 Lab 7
+4. Bayes Rule: Estimate robot's position across 4 discrete states given a range measurement z = 9.272m
+5. Police Data Model: Conditional age distributions by race from police_killings.csv, modeled with Gaussian PDFs and empirical histograms
 
-LiDAR Histogram + Gaussian Fit
-<img width="563" height="455" alt="image" src="https://github.com/user-attachments/assets/94ee1d82-435e-449f-9d9e-95a525a6587b" />
+# Setup
+## Running in Google Colab
+1. Upload the following files to Google Drive under MyDrive/:
+- lab1_azimuth_90.csv
+- lab1_azimuth_00.csv
+- lab1_aximuth_90.csv
+- police_killings.csv
 
-Bayesian State Estimation
-- Highest probability state: x2 (=0.669)
-- Demonstrate probabilistic localization from noisy measurements
+2. Open E205_Lab1_VKS.ipynb in Google Colab
+3. Mount Drive when prompted and run cells top to bottom
 
-GPS Transformation
-- Converted lat/lon -> (x,y)
-- Observed higher variance in x-direction
+## Data
+The LiDAR data and police_killings.csv were provided as part of the lab prompt and are included in this repository.
+
